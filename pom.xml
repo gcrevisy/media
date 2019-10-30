@@ -15,6 +15,7 @@
 
 	<modules>
 		<module>media-api</module>
+		<module>media-service</module>
 	</modules>
 
 	<properties>
