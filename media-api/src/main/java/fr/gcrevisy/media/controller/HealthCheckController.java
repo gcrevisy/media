@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class FilmController {
+public class HealthCheckController {
 
 	@ResponseBody
-	@GetMapping(value = { "/getcheck" })
-	public String test() {
+	@GetMapping(value = { "/check" })
+	public String check() {
 		return "Alive !";
 	}
 
