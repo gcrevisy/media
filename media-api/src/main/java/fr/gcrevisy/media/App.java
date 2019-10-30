@@ -1,4 +1,4 @@
-package fr.gcrevisy.media.mediaapi;
+package fr.gcrevisy.media;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
