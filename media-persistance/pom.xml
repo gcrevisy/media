@@ -8,12 +8,13 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>media-service</artifactId>
+  <artifactId>media-persistance</artifactId>
 
   <dependencies>
     <dependency>
       <groupId>fr.gcrevisy.media</groupId>
-      <artifactId>media-persistance</artifactId>
+      <artifactId>media-core</artifactId>
     </dependency>
   </dependencies>
+
 </project>

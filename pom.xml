@@ -13,17 +13,39 @@
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<modules>
-		<module>media-api</module>
-		<module>media-service</module>
-	</modules>
-
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 
-	<dependencies>
+	<modules>
+		<module>media-api</module>
+		<module>media-service</module>
+		<module>media-persistance</module>
+		<module>media-core</module>
+	</modules>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>fr.gcrevisy.media</groupId>
+				<artifactId>media-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>fr.gcrevisy.media</groupId>
+				<artifactId>media-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>fr.gcrevisy.media</groupId>
+				<artifactId>media-persistance</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<dependencies>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
