@@ -27,6 +27,13 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.4.9</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
 				<groupId>fr.gcrevisy.media</groupId>
 				<artifactId>media-service</artifactId>
 				<version>${project.version}</version>
@@ -56,12 +63,7 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.pitest</groupId>
-			<artifactId>pitest-maven</artifactId>
-			<version>1.4.9</version>
-			<scope>test</scope>
-		</dependency> -->
+
 
 		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
