@@ -28,10 +28,10 @@
         <artifactId>pitest-maven</artifactId>
         <configuration>
           <targetClasses>
-            <param>fr.gcrevisy.service.impl.*</param>
+            <param>fr.gcrevisy.media.service.impl.*</param>
           </targetClasses>
           <targetTests>
-            <param>fr.gcrevisy.service.impl.*</param>
+            <param>fr.gcrevisy.media.service.impl.*</param>
           </targetTests>
         </configuration>
       </plugin>

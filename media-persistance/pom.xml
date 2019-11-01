@@ -29,10 +29,10 @@
         <artifactId>pitest-maven</artifactId>
         <configuration>
           <targetClasses>
-            <param>fr.gcrevisy.dao.impl.*</param>
+            <param>fr.gcrevisy.media.dao.impl.*</param>
           </targetClasses>
           <targetTests>
-            <param>fr.gcrevisy.dao.impl.*</param>
+            <param>fr.gcrevisy.media.dao.impl.*</param>
           </targetTests>
         </configuration>
       </plugin>
