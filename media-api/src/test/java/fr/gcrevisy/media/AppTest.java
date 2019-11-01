@@ -1,13 +1,18 @@
-package fr.gcrevisy.media.mediaapi;
+package fr.gcrevisy.media;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+public class AppTest {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
+	}
+
+	@Test
+	public void totoTest() {
+
 	}
 
 }
