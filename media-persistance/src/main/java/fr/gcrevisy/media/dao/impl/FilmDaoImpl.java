@@ -35,7 +35,13 @@ public class FilmDaoImpl implements FilmDao {
 
     @Override
     public List<Film> getAll() {
-        return new ArrayList<Film>();
+        List<Film> result = new ArrayList<Film>();
+
+        for (int i = 0; i < 3000; i++) {
+            result.add(new Film(StringUtils.leftPad(String.valueOf(i), 15, "0"), "libelle", "support", "annee"));
+        }
+
+        return result;
     }
 
     @Override
