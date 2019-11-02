@@ -20,30 +20,6 @@ public class Film implements Model {
         this.annee = annee;
     }
 
-    public Film id(String id) {
-        this.id = id;
-        return this;
-    }
-
-    public Film libelle(String libelle) {
-        this.libelle = libelle;
-        return this;
-    }
-
-    public Film support(String support) {
-        this.support = support;
-        return this;
-    }
-
-    public Film annee(String annee) {
-        this.annee = annee;
-        return this;
-    }
-
-    public String getId() {
-        return this.id;
-    }
-
     public void setId(String id) {
         this.id = id;
     }

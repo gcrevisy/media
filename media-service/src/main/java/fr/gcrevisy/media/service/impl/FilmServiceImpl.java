@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
+import fr.gcrevisy.media.dao.FilmDao;
+import fr.gcrevisy.media.dao.impl.FilmDaoImpl;
 import fr.gcrevisy.media.exception.TechnicalException;
 import fr.gcrevisy.media.model.metier.Film;
 import fr.gcrevisy.media.service.FilmService;
@@ -14,32 +16,29 @@ public class FilmServiceImpl implements FilmService {
         if (StringUtils.isBlank(id)) {
             throw new TechnicalException("Entree null ou vide FilmServiceImpl#delete");
         }
-        // TODO Auto-generated method stub
-
+        getFilmDao().delete(id);
     }
 
     @Override
     public void delete(Film item) throws TechnicalException {
-        // TODO Auto-generated method stub
         if (item == null) {
             throw new TechnicalException("Entree null ou vide FilmServiceImpl#delete");
         }
+        getFilmDao().delete(item);
 
     }
 
     @Override
     public Film saveOrUpdate(Film item) throws TechnicalException {
-        // TODO Auto-generated method stub
         if (item == null) {
             throw new TechnicalException("Entree null ou vide FilmServiceImpl#saveOrUpdate");
         }
-        return null;
+        return getFilmDao().saveOrUpdate(item);
     }
 
     @Override
     public List<Film> getAll() {
-        // TODO Auto-generated method stub
-        return null;
+        return getFilmDao().getAll();
     }
 
     @Override
@@ -47,7 +46,10 @@ public class FilmServiceImpl implements FilmService {
         if (StringUtils.isBlank(id)) {
             throw new TechnicalException("Entree null ou vide FilmServiceImpl#delete");
         }
-        // TODO Auto-generated method stub
-        return null;
+        return getFilmDao().getById(id);
+    }
+
+    private FilmDao getFilmDao() {
+        return new FilmDaoImpl();
     }
 }
