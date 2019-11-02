@@ -31,8 +31,17 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public Film saveOrUpdate(Film item) throws TechnicalException {
         if (item == null) {
-            throw new TechnicalException("Entree null ou vide FilmServiceImpl#saveOrUpdate");
+            throw new TechnicalException("Entree null ou vide // FilmServiceImpl#saveOrUpdate");
         }
+        
+        if (StringUtils.isBlank(item.getLibelle())) {
+            throw new TechnicalException("Valeur vide : libelle // FilmServiceImpl#saveOrUpdate");
+        }
+        
+        if (StringUtils.isBlank(item.getSupport())) {
+            throw new TechnicalException("Valeur vide : support // FilmServiceImpl#saveOrUpdate");
+        }
+
         return getFilmDao().saveOrUpdate(item);
     }
 

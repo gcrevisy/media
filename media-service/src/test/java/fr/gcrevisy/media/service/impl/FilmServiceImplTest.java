@@ -58,6 +58,42 @@ public class FilmServiceImplTest {
     }
 
     @Test(expected = TechnicalException.class)
+    public void saveOrUpdateItemValueLibelleVide() throws TechnicalException {
+        Film item = new Film("id", "", "support", "annee");
+        FilmService service = new FilmServiceImpl();
+        Film result = service.saveOrUpdate(item);
+
+        Assert.assertNotNull(result);
+    }
+
+    @Test(expected = TechnicalException.class)
+    public void saveOrUpdateItemValueLibelleNull() throws TechnicalException {
+        Film item = new Film("id", null, "support", "annee");
+        FilmService service = new FilmServiceImpl();
+        Film result = service.saveOrUpdate(item);
+
+        Assert.assertNotNull(result);
+    }
+
+    @Test(expected = TechnicalException.class)
+    public void saveOrUpdateItemValueSupportVide() throws TechnicalException {
+        Film item = new Film("id", "libelle", "", "annee");
+        FilmService service = new FilmServiceImpl();
+        Film result = service.saveOrUpdate(item);
+
+        Assert.assertNotNull(result);
+    }
+
+    @Test(expected = TechnicalException.class)
+    public void saveOrUpdateItemValueSupportNull() throws TechnicalException {
+        Film item = new Film("id", "libelle", null, "annee");
+        FilmService service = new FilmServiceImpl();
+        Film result = service.saveOrUpdate(item);
+
+        Assert.assertNotNull(result);
+    }
+
+    @Test(expected = TechnicalException.class)
     public void getByIdIdNull() throws TechnicalException {
         FilmService service = new FilmServiceImpl();
         service.getById(null);
