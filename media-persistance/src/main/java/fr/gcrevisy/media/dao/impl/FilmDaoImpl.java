@@ -1,5 +1,6 @@
 package fr.gcrevisy.media.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -15,32 +16,32 @@ public class FilmDaoImpl implements FilmDao {
         if (StringUtils.isBlank(id)) {
             throw new TechnicalException("Entree null ou vide FilmDaoImpl#delete");
         }
-        // TODO Auto-generated method stub
-
     }
 
     @Override
     public void delete(Film item) throws TechnicalException {
-        // TODO Auto-generated method stub
         if (item == null) {
             throw new TechnicalException("Entree null ou vide FilmDaoImpl#delete");
         }
-
     }
 
     @Override
     public Film saveOrUpdate(Film item) throws TechnicalException {
-        // TODO Auto-generated method stub
         if (item == null) {
             throw new TechnicalException("Entree null ou vide FilmDaoImpl#saveOrUpdate");
         }
-        return null;
+        return item;
     }
 
     @Override
     public List<Film> getAll() {
-        // TODO Auto-generated method stub
-        return null;
+        List<Film> result = new ArrayList<Film>();
+
+        for (int i = 0; i < 3000; i++) {
+            result.add(new Film(StringUtils.leftPad(String.valueOf(i), 15, "0"), "libelle", "support", "annee"));
+        }
+
+        return result;
     }
 
     @Override
@@ -48,8 +49,7 @@ public class FilmDaoImpl implements FilmDao {
         if (StringUtils.isBlank(id)) {
             throw new TechnicalException("Entree null ou vide FilmDaoImpl#delete");
         }
-        // TODO Auto-generated method stub
-        return null;
+        return new Film("id", "libelle", "support", "annee");
     }
 
 }
