@@ -3,20 +3,19 @@ package fr.gcrevisy.media.service.impl;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import fr.gcrevisy.media.dao.FilmDao;
-import fr.gcrevisy.media.dao.impl.FilmDaoImpl;
 import fr.gcrevisy.media.exception.TechnicalException;
 import fr.gcrevisy.media.model.metier.Film;
 import fr.gcrevisy.media.service.FilmService;
 
+@Service
 public class FilmServiceImpl implements FilmService {
 
+    @Autowired
     private FilmDao filmDao;
-
-    public FilmServiceImpl() {
-        filmDao = new FilmDaoImpl();
-    }
 
     public FilmServiceImpl(FilmDao dao) {
         filmDao = dao;

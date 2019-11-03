@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "fr.gcrevisy.media.controller")
+@ComponentScan(basePackages = "fr.gcrevisy.media")
 public class App {
 
 	public static void main(String[] args) {
