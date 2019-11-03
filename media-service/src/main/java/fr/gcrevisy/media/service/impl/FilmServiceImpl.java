@@ -11,12 +11,23 @@ import fr.gcrevisy.media.model.metier.Film;
 import fr.gcrevisy.media.service.FilmService;
 
 public class FilmServiceImpl implements FilmService {
+
+    private FilmDao filmDao;
+
+    public FilmServiceImpl() {
+        filmDao = new FilmDaoImpl();
+    }
+
+    public FilmServiceImpl(FilmDao dao) {
+        filmDao = dao;
+    }
+
     @Override
     public void delete(String id) throws TechnicalException {
         if (StringUtils.isBlank(id)) {
             throw new TechnicalException("Entree null ou vide FilmServiceImpl#delete");
         }
-        getFilmDao().delete(id);
+        filmDao.delete(id);
     }
 
     @Override
@@ -24,7 +35,7 @@ public class FilmServiceImpl implements FilmService {
         if (item == null) {
             throw new TechnicalException("Entree null ou vide FilmServiceImpl#delete");
         }
-        getFilmDao().delete(item);
+        filmDao.delete(item);
 
     }
 
@@ -33,21 +44,21 @@ public class FilmServiceImpl implements FilmService {
         if (item == null) {
             throw new TechnicalException("Entree null ou vide // FilmServiceImpl#saveOrUpdate");
         }
-        
+
         if (StringUtils.isBlank(item.getLibelle())) {
             throw new TechnicalException("Valeur vide : libelle // FilmServiceImpl#saveOrUpdate");
         }
-        
+
         if (StringUtils.isBlank(item.getSupport())) {
             throw new TechnicalException("Valeur vide : support // FilmServiceImpl#saveOrUpdate");
         }
 
-        return getFilmDao().saveOrUpdate(item);
+        return filmDao.saveOrUpdate(item);
     }
 
     @Override
     public List<Film> getAll() {
-        return getFilmDao().getAll();
+        return filmDao.getAll();
     }
 
     @Override
@@ -55,10 +66,7 @@ public class FilmServiceImpl implements FilmService {
         if (StringUtils.isBlank(id)) {
             throw new TechnicalException("Entree null ou vide FilmServiceImpl#delete");
         }
-        return getFilmDao().getById(id);
+        return filmDao.getById(id);
     }
 
-    private FilmDao getFilmDao() {
-        return new FilmDaoImpl();
-    }
 }

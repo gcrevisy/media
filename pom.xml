@@ -15,6 +15,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<pitest.version>1.4.9</pitest.version>
 	</properties>
 
 	<modules>
@@ -29,7 +30,7 @@
 			<dependency>
 				<groupId>org.pitest</groupId>
 				<artifactId>pitest-maven</artifactId>
-				<version>1.4.9</version>
+				<version>${pitest.version}</version>
 				<scope>test</scope>
 			</dependency>
 
@@ -63,23 +64,17 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
 
 
 		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency> -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<!-- <exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions> -->
-		</dependency>
+
 	</dependencies>
 
 	<build>

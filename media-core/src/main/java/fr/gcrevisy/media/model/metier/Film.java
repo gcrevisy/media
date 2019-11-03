@@ -20,6 +20,10 @@ public class Film implements Model {
         this.annee = annee;
     }
 
+    public String getId() {
+        return this.id;
+    }
+
     public void setId(String id) {
         this.id = id;
     }

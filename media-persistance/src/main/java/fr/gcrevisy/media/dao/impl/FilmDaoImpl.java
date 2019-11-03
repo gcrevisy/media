@@ -37,7 +37,7 @@ public class FilmDaoImpl implements FilmDao {
     public List<Film> getAll() {
         List<Film> result = new ArrayList<Film>();
 
-        for (int i = 0; i < 3000; i++) {
+        for (int i = 1; i <= 10; i++) {
             result.add(new Film(StringUtils.leftPad(String.valueOf(i), 15, "0"), "libelle", "support", "annee"));
         }
 
