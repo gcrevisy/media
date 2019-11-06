@@ -15,6 +15,10 @@ public class FilmController {
     @Autowired
     private FilmService filmService;
 
+    public FilmController(FilmService filmService) {
+        this.filmService = filmService;
+    }
+
     @GetMapping("/films")
     public List<Film> getAll() {
         return filmService.getAll();
