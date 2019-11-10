@@ -19,7 +19,7 @@ public class FilmDaoImplTest {
 
     @Test
     public void deleteItemValue() throws TechnicalException {
-        Film item = new Film("id", "libelle", "support", "annee");
+        Film item = new Film("libelle", "support", "annee");
         FilmDao dao = new FilmDaoImpl();
         dao.delete(item);
     }
@@ -50,7 +50,7 @@ public class FilmDaoImplTest {
 
     @Test
     public void saveOrUpdateItemValue() throws TechnicalException {
-        Film item = new Film("id", "libelle", "support", "annee");
+        Film item = new Film("libelle", "support", "annee");
         FilmDao dao = new FilmDaoImpl();
         Film result = dao.saveOrUpdate(item);
 

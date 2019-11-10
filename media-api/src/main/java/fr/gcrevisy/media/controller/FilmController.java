@@ -22,5 +22,5 @@ public class FilmController {
     @GetMapping("/films")
     public List<Film> getAll() {
         return filmService.getAll();
-    }
+    } 
 }

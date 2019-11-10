@@ -21,7 +21,7 @@ public class FilmServiceImplTest {
 
     @Test
     public void deleteItemValue() throws TechnicalException {
-        Film item = new Film("id", "libelle", "support", "annee");
+        Film item = new Film("libelle", "support", "annee");
         FilmService service = new FilmServiceImpl(initDao());
         service.delete(item);
     }
@@ -52,7 +52,7 @@ public class FilmServiceImplTest {
 
     @Test
     public void saveOrUpdateItemValue() throws TechnicalException {
-        Film item = new Film("id", "libelle", "support", "annee");
+        Film item = new Film("libelle", "support", "annee");
         FilmService service = new FilmServiceImpl(initDao());
         Film result = service.saveOrUpdate(item);
 
@@ -61,7 +61,7 @@ public class FilmServiceImplTest {
 
     @Test(expected = TechnicalException.class)
     public void saveOrUpdateItemValueLibelleVide() throws TechnicalException {
-        Film item = new Film("id", "", "support", "annee");
+        Film item = new Film("", "support", "annee");
         FilmService service = new FilmServiceImpl(initDao());
         Film result = service.saveOrUpdate(item);
 
@@ -70,7 +70,7 @@ public class FilmServiceImplTest {
 
     @Test(expected = TechnicalException.class)
     public void saveOrUpdateItemValueLibelleNull() throws TechnicalException {
-        Film item = new Film("id", null, "support", "annee");
+        Film item = new Film(null, "support", "annee");
         FilmService service = new FilmServiceImpl(initDao());
         Film result = service.saveOrUpdate(item);
 
@@ -79,7 +79,7 @@ public class FilmServiceImplTest {
 
     @Test(expected = TechnicalException.class)
     public void saveOrUpdateItemValueSupportVide() throws TechnicalException {
-        Film item = new Film("id", "libelle", "", "annee");
+        Film item = new Film("libelle", "", "annee");
         FilmService service = new FilmServiceImpl(initDao());
         Film result = service.saveOrUpdate(item);
 
@@ -88,7 +88,7 @@ public class FilmServiceImplTest {
 
     @Test(expected = TechnicalException.class)
     public void saveOrUpdateItemValueSupportNull() throws TechnicalException {
-        Film item = new Film("id", "libelle", null, "annee");
+        Film item = new Film("libelle", null, "annee");
         FilmService service = new FilmServiceImpl(initDao());
         Film result = service.saveOrUpdate(item);
 
@@ -122,12 +122,12 @@ public class FilmServiceImplTest {
 
             @Override
             public Film saveOrUpdate(Film item) throws TechnicalException {
-                return new Film("id", "libelle", "support", "annee");
+                return new Film("libelle", "support", "annee");
             }
 
             @Override
             public Film getById(String id) throws TechnicalException {
-                return new Film("id", "libelle", "support", "annee");
+                return new Film("libelle", "support", "annee");
             }
 
             @Override
