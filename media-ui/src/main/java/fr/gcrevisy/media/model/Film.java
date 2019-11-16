@@ -1,28 +1,15 @@
-package fr.gcrevisy.media.model.metier;
+package fr.gcrevisy.media.model;
 
 import java.util.Objects;
 
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
-import org.mongodb.morphia.annotations.Property;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import fr.gcrevisy.media.model.Model;
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Film {
 
-@Entity("films")
-public class Film implements Model {
-
-    private static final long serialVersionUID = 1L;
-
-    @Id
     private String id;
-
-    @Property("libelle")
     private String libelle;
-
-    @Property("support")
     private String support;
-
-    @Property("annee")
     private String annee;
 
     public Film() {

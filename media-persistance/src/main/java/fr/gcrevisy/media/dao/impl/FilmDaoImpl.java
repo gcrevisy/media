@@ -34,6 +34,10 @@ public class FilmDaoImpl implements FilmDao {
         this.datastore.ensureIndexes();
     }
 
+    public FilmDaoImpl(Datastore datastore) {
+        this.datastore = datastore;
+    }
+
     @Override
     public void delete(String id) throws TechnicalException {
         if (StringUtils.isBlank(id)) {
