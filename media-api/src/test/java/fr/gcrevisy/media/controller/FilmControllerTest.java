@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import fr.gcrevisy.media.exception.TechnicalException;
 import fr.gcrevisy.media.model.metier.Film;
+import fr.gcrevisy.media.model.technique.Films;
 import fr.gcrevisy.media.service.FilmService;
 
 public class FilmControllerTest {
@@ -15,9 +16,9 @@ public class FilmControllerTest {
     @Test
     public void getAllOk() {
         FilmController controller = new FilmController(getService());
-        List<Film> liste = controller.getAll();
+        Films liste = controller.getAll();
 
-        Assert.assertTrue(liste != null);
+        Assert.assertTrue(liste != null && liste.getFilms() != null);
     }
 
     private FilmService getService() {
