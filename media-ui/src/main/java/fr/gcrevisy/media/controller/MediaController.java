@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import fr.gcrevisy.media.service.MediaServiceImpl;
+import fr.gcrevisy.media.service.impl.MediaServiceImpl;
 
 @Controller
 public class MediaController {

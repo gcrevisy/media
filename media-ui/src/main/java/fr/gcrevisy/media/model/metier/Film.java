@@ -1,4 +1,4 @@
-package fr.gcrevisy.media.model;
+package fr.gcrevisy.media.model.metier;
 
 import java.util.Objects;
 

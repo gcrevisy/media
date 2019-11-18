@@ -9,15 +9,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import fr.gcrevisy.media.model.Film;
-import fr.gcrevisy.media.service.model.FilmsJson;
+import fr.gcrevisy.media.model.metier.Film;
+import fr.gcrevisy.media.model.technique.FilmsJson;
+import fr.gcrevisy.media.service.MediaService;
 
 /**
  * MediaService
  */
 @Service
-public class MediaServiceImpl {
+public class MediaServiceImpl implements MediaService {
 
+    @Override
     public List<Film> getAllFilms() {
         List<Film> result = new ArrayList<>();
 

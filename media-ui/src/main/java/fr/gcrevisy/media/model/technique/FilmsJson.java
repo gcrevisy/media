@@ -1,8 +1,8 @@
-package fr.gcrevisy.media.service.model;
+package fr.gcrevisy.media.model.technique;
 
 import java.util.List;
 
-import fr.gcrevisy.media.model.Film;
+import fr.gcrevisy.media.model.metier.Film;
 
 /**
  * FilmsJson
