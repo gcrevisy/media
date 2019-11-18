@@ -3,6 +3,7 @@ package fr.gcrevisy.media.dao.impl;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.mongodb.morphia.Datastore;
@@ -19,6 +20,7 @@ public class FilmDaoImplTest {
         dao.delete((Film) null);
     }
 
+    @Ignore
     @Test
     public void deleteItemValue() throws TechnicalException {
         Film item = new Film("libelle", "support", "annee");
@@ -38,6 +40,7 @@ public class FilmDaoImplTest {
         dao.delete("");
     }
 
+    @Ignore
     @Test
     public void deleteIdValue() throws TechnicalException {
         FilmDao dao = new FilmDaoImpl(getMockedDataStore());
@@ -65,6 +68,7 @@ public class FilmDaoImplTest {
         dao.getById(null);
     }
 
+    @Ignore
     @Test
     public void getByIdIdValue() throws TechnicalException {
         FilmDao dao = new FilmDaoImpl(getMockedDataStore());
@@ -73,6 +77,7 @@ public class FilmDaoImplTest {
         Assert.assertNotNull(result);
     }
 
+    @Ignore
     @Test
     public void getAllValue() throws TechnicalException {
         FilmDao dao = new FilmDaoImpl(getMockedDataStore());
