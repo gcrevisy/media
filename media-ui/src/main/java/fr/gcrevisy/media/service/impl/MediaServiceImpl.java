@@ -1,4 +1,4 @@
-package fr.gcrevisy.media.service;
+package fr.gcrevisy.media.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,7 +16,7 @@ import fr.gcrevisy.media.service.model.FilmsJson;
  * MediaService
  */
 @Service
-public class MediaService {
+public class MediaServiceImpl {
 
     public List<Film> getAllFilms() {
         List<Film> result = new ArrayList<>();
