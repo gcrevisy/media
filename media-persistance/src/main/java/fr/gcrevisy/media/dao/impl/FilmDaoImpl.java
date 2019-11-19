@@ -66,6 +66,9 @@ public class FilmDaoImpl implements FilmDao {
         if (item == null) {
             gestionErreur("Entree null ou vide FilmDaoImpl#saveOrUpdate");
         }
+        if (StringUtils.isNotBlank(item.getId()) && !ObjectId.isValid(item.getId())) {
+            gestionErreur("Entree incorrecte FilmDaoImpl#getById");
+        }
         datastore.save(item);
         return item;
     }
