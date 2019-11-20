@@ -5,15 +5,15 @@ import java.util.List;
 
 import fr.gcrevisy.media.model.metier.Film;
 
-public class Films {
+public class FilmsJson extends ResultJson {
 
     private List<Film> films;
 
-    public Films() {
+    public FilmsJson() {
         films = new ArrayList<Film>();
     }
 
-    public Films(List<Film> films) {
+    public FilmsJson(List<Film> films) {
         this.films = films;
     }
 
