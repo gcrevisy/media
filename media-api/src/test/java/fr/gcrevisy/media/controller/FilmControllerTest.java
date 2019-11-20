@@ -3,11 +3,13 @@ package fr.gcrevisy.media.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
 import fr.gcrevisy.media.exception.TechnicalException;
 import fr.gcrevisy.media.model.metier.Film;
+import fr.gcrevisy.media.model.technique.FilmJson;
 import fr.gcrevisy.media.model.technique.FilmsJson;
 import fr.gcrevisy.media.service.FilmService;
 
@@ -21,6 +23,33 @@ public class FilmControllerTest {
         Assert.assertTrue(liste != null && liste.getFilms() != null);
     }
 
+    @Test
+    public void getByIdNull() {
+        FilmController controller = new FilmController(getService());
+        FilmJson item = controller.getById(null);
+
+        Assert.assertTrue(item != null);
+        Assert.assertTrue(StringUtils.isNotBlank(item.getMessage()));
+        Assert.assertTrue(item.getFilm() == null);
+    }
+
+    @Test
+    public void getByIdValue() {
+        FilmController controller = new FilmController(getService());
+        FilmJson item = controller.getById("id");
+
+        Assert.assertTrue(item != null);
+        Assert.assertTrue(StringUtils.isBlank(item.getMessage()));
+        Assert.assertTrue(item.getFilm() != null);
+
+    }
+
+    @Test
+    public void getByIdWrongValue() {
+        FilmController controller = new FilmController(getService());
+
+    }
+
     private FilmService getService() {
         return new FilmService() {
 
@@ -32,8 +61,9 @@ public class FilmControllerTest {
 
             @Override
             public Film getById(String id) throws TechnicalException {
-                // TODO Auto-generated method stub
-                return null;
+                if (StringUtils.isBlank(id))
+                    throw new TechnicalException("Entree null ou vide FilmServiceImpl#delete");
+                return new Film("id", "libelle", "support", "annee");
             }
 
             @Override

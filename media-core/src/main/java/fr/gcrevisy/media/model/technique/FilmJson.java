@@ -7,7 +7,6 @@ public class FilmJson extends ResultJson {
     private Film film;
 
     public FilmJson() {
-        film = new Film();
     }
 
     public FilmJson(Film film) {
