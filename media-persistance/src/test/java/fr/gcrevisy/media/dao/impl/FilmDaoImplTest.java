@@ -68,6 +68,12 @@ public class FilmDaoImplTest {
         dao.getById(null);
     }
 
+    @Test(expected = TechnicalException.class)
+    public void getByIdIdEmptyValue() throws TechnicalException {
+        FilmDao dao = new FilmDaoImpl(getMockedDataStore());
+        dao.getById("");
+    }
+
     @Ignore
     @Test
     public void getByIdIdValue() throws TechnicalException {
