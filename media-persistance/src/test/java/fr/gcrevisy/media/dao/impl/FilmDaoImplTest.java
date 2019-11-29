@@ -1,12 +1,12 @@
 package fr.gcrevisy.media.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.mockito.stubbing.OngoingStubbing;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.query.Query;
 
@@ -82,7 +82,6 @@ public class FilmDaoImplTest {
         dao.getById("1234");
     }
 
-    @Ignore
     @Test
     public void getAllValue() throws TechnicalException {
         FilmDao dao = new FilmDaoImpl(getMockedDataStore());
@@ -92,8 +91,12 @@ public class FilmDaoImplTest {
     }
 
     private Datastore getMockedDataStore() {
-        Datastore result = Mockito.mock(Datastore.class);
+        Datastore ds = Mockito.mock(Datastore.class);
 
-        return result;
+        Query<Film> queryAll = Mockito.mock(Query.class);
+        Mockito.when(ds.find(Film.class)).thenReturn(queryAll);
+        Mockito.when(queryAll.asList()).thenReturn(new ArrayList<Film>());
+
+        return ds;
     }
 }
