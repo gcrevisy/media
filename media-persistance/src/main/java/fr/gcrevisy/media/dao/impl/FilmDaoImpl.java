@@ -89,7 +89,7 @@ public class FilmDaoImpl implements FilmDao {
             gestionErreur("Entree incorrecte FilmDaoImpl#getById");
         }
         ObjectId key = new ObjectId(id);
-        return (Film) datastore.find(Film.class).field("_id").equal(key);
+        return datastore.find(Film.class).field("_id").equal(key).get();
     }
 
     private void gestionErreur(String messageErreur) throws TechnicalException {
