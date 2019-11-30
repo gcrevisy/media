@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -61,4 +62,15 @@ public class FilmController {
         }
     }
 
+    @PutMapping("/film/saveorupdate")
+    public FilmJson saveOrUpdate(@RequestBody FilmJson item) {
+        FilmJson result = new FilmJson();
+        try {
+            result.setFilm(filmService.saveOrUpdate(item.getFilm()));
+        } catch (TechnicalException e) {
+            logger.error("erreur pendant le saveOrupdate : ", e);
+            result.setMessage(e.getMessage());
+        }
+        return result;
+    }
 }
