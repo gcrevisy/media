@@ -16,16 +16,17 @@ import fr.gcrevisy.media.model.metier.Film;
 
 public class FilmDaoImplTest {
 
+    private static String ID = "5dc7df97e11f13383f09c531";
+
     @Test(expected = TechnicalException.class)
     public void deleteItemNull() throws TechnicalException {
         FilmDao dao = new FilmDaoImpl(getMockedDataStore());
         dao.delete((Film) null);
     }
 
-    @Ignore
     @Test
     public void deleteItemValue() throws TechnicalException {
-        Film item = new Film("libelle", "support", "annee");
+        Film item = new Film(ID, "libelle", "support", "annee");
         FilmDao dao = new FilmDaoImpl(getMockedDataStore());
         dao.delete(item);
     }
@@ -42,11 +43,10 @@ public class FilmDaoImplTest {
         dao.delete("");
     }
 
-    @Ignore
     @Test
     public void deleteIdValue() throws TechnicalException {
         FilmDao dao = new FilmDaoImpl(getMockedDataStore());
-        dao.delete("1234");
+        dao.delete(ID);
     }
 
     @Test(expected = TechnicalException.class)
@@ -96,6 +96,8 @@ public class FilmDaoImplTest {
         Query<Film> queryAll = Mockito.mock(Query.class);
         Mockito.when(ds.find(Film.class)).thenReturn(queryAll);
         Mockito.when(queryAll.asList()).thenReturn(new ArrayList<Film>());
+
+        Mockito.when(ds.delete(Film.class, ID)).thenReturn(null);
 
         return ds;
     }
