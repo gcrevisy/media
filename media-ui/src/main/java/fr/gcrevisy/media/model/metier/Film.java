@@ -4,9 +4,12 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class Film {
+import fr.gcrevisy.media.model.technique.Model;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Film implements Model {
+
+    private static final long serialVersionUID = 1L;
     private String id;
     private String libelle;
     private String support;
