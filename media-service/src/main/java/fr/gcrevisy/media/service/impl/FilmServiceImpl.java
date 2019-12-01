@@ -63,7 +63,7 @@ public class FilmServiceImpl implements FilmService {
     @Override
     public Film getById(String id) throws TechnicalException {
         if (StringUtils.isBlank(id)) {
-            throw new TechnicalException("Entree null ou vide FilmServiceImpl#delete");
+            throw new TechnicalException("Entree null ou vide FilmServiceImpl#getById");
         }
         return filmDao.getById(id);
     }

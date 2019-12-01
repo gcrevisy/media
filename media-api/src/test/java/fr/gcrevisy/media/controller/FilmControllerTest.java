@@ -45,9 +45,15 @@ public class FilmControllerTest {
     }
 
     @Test
-    public void getByIdWrongValue() {
+    public void deleteByIdOk() {
         FilmController controller = new FilmController(getService());
+        controller.delete("id");
+    }
 
+    @Test
+    public void deleteByItemOk() {
+        FilmController controller = new FilmController(getService());
+        controller.delete(new FilmJson(new Film("id", "libelle", "support", "annee")));
     }
 
     private FilmService getService() {
@@ -55,14 +61,17 @@ public class FilmControllerTest {
 
             @Override
             public Film saveOrUpdate(Film item) throws TechnicalException {
-                // TODO Auto-generated method stub
                 return null;
             }
 
             @Override
             public Film getById(String id) throws TechnicalException {
                 if (StringUtils.isBlank(id))
-                    throw new TechnicalException("Entree null ou vide FilmServiceImpl#delete");
+                    throw new TechnicalException("Entree null ou vide FilmServiceImpl#getById");
+
+                if ("1234".equals(id))
+                    throw new TechnicalException("Entree incorrecte FilmServiceImpl#getById");
+
                 return new Film("id", "libelle", "support", "annee");
             }
 
@@ -73,13 +82,11 @@ public class FilmControllerTest {
 
             @Override
             public void delete(Film item) throws TechnicalException {
-                // TODO Auto-generated method stub
 
             }
 
             @Override
             public void delete(String id) throws TechnicalException {
-                // TODO Auto-generated method stub
 
             }
         };

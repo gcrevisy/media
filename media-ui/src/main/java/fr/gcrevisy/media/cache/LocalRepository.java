@@ -53,7 +53,11 @@ public class LocalRepository {
             FileInputStream fis = new FileInputStream(repositoryPath);
             ObjectInputStream ois = new ObjectInputStream(fis);
 
-            result = (List<Film>) ois.readObject();
+            Object o = ois.readObject();
+
+            if (o instanceof List) {
+                result = (List<Film>) o;
+            }
 
             ois.close();
             fis.close();

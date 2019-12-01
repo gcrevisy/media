@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.mongodb.morphia.Datastore;
@@ -93,6 +92,7 @@ public class FilmDaoImplTest {
     private Datastore getMockedDataStore() {
         Datastore ds = Mockito.mock(Datastore.class);
 
+        @SuppressWarnings("unchecked")
         Query<Film> queryAll = Mockito.mock(Query.class);
         Mockito.when(ds.find(Film.class)).thenReturn(queryAll);
         Mockito.when(queryAll.asList()).thenReturn(new ArrayList<Film>());
