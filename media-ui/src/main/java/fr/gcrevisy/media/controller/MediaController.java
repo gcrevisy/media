@@ -8,14 +8,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import fr.gcrevisy.media.annotation.LogAspect;
-import fr.gcrevisy.media.service.impl.MediaServiceImpl;
+import fr.gcrevisy.media.service.MediaService;
 
 @Controller
 public class MediaController {
     private Logger logger = LoggerFactory.getLogger(MediaController.class);
 
     @Autowired
-    private MediaServiceImpl mediaService;
+    private MediaService mediaService;
+
+    public MediaController() {
+    }
+
+    public MediaController(MediaService service) {
+        mediaService = service;
+    }
 
     @LogAspect
     @GetMapping(value = "/")

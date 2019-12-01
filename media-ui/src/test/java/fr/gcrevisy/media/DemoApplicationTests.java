@@ -1,4 +1,4 @@
-package fr.gcrevisy.media.mediaui;
+package fr.gcrevisy.media;
 
 // @SpringBootTest
 class DemoApplicationTests {
