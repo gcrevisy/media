@@ -12,15 +12,17 @@ import fr.gcrevisy.media.service.MediaService;
 
 @Controller
 public class MediaController {
-    private Logger logger = LoggerFactory.getLogger(MediaController.class);
+    private Logger logger;
 
     @Autowired
     private MediaService mediaService;
 
     public MediaController() {
+        logger = LoggerFactory.getLogger(MediaController.class);
     }
 
     public MediaController(MediaService service) {
+        this();
         mediaService = service;
     }
 
