@@ -26,6 +26,35 @@
         <module>media-core</module>
     </modules>
 
+    <profiles>
+
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env.cacheLocation>C:\MongoDB\LocalRepository.data</env.cacheLocation>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>pic</id>
+            <properties>
+                <env.cacheLocation>/tmp/pic/LocalRepository.data</env.cacheLocation>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <env.cacheLocation>/tmp/prod/LocalRepository.data</env.cacheLocation>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+        </profile>
+
+    </profiles>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
