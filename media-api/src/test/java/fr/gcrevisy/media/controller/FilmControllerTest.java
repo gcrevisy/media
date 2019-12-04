@@ -56,11 +56,37 @@ public class FilmControllerTest {
         controller.delete(new FilmJson(new Film("id", "libelle", "support", "annee")));
     }
 
+    @Test
+    public void saveOrUpdateOk() {
+        FilmController controller = new FilmController(getService());
+        controller.saveOrUpdate(new FilmJson(new Film("id", "libelle", "support", "annee")));
+    }
+
+    @Test
+    public void deleteByIdNull() {
+        FilmController controller = new FilmController(getService());
+        controller.delete((String) null);
+    }
+
+    @Test
+    public void deleteByItemNull() {
+        FilmController controller = new FilmController(getService());
+        controller.delete((FilmJson) null);
+    }
+
+    @Test
+    public void saveOrUpdatenNull() {
+        FilmController controller = new FilmController(getService());
+        controller.saveOrUpdate(null);
+    }
+
     private FilmService getService() {
         return new FilmService() {
 
             @Override
             public Film saveOrUpdate(Film item) throws TechnicalException {
+                if (item == null)
+                    throw new TechnicalException("erreur");
                 return null;
             }
 
@@ -82,12 +108,14 @@ public class FilmControllerTest {
 
             @Override
             public void delete(Film item) throws TechnicalException {
-
+                if (item == null)
+                    throw new TechnicalException("erreur");
             }
 
             @Override
             public void delete(String id) throws TechnicalException {
-
+                if (id == null)
+                    throw new TechnicalException("erreur");
             }
         };
     }

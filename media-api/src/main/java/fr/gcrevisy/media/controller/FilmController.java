@@ -62,7 +62,7 @@ public class FilmController {
         }
     }
 
-    @PutMapping("/film/saveorupdate")
+    @PutMapping("/film/save")
     public FilmJson saveOrUpdate(@RequestBody FilmJson item) {
         FilmJson result = new FilmJson();
         try {
