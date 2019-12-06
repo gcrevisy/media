@@ -19,7 +19,6 @@
     </properties>
 
     <modules>
-        <!-- <module>media-ui</module> -->
         <module>media-api</module>
         <module>media-service</module>
         <module>media-persistance</module>
