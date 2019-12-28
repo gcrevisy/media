@@ -11,13 +11,13 @@ import org.mongodb.morphia.Morphia;
 import org.mongodb.morphia.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import fr.gcrevisy.media.dao.FilmDao;
 import fr.gcrevisy.media.exception.TechnicalException;
 import fr.gcrevisy.media.model.metier.Film;
 
-@Service
+@Repository
 public class FilmDaoImpl implements FilmDao {
 
     private Logger logger = LoggerFactory.getLogger(FilmDaoImpl.class);
