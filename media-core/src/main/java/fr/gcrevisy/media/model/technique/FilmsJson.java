@@ -4,7 +4,7 @@ import java.util.List;
 
 import fr.gcrevisy.media.model.metier.Film;
 
-public class FilmsJson extends ResultJson {
+public class FilmsJson extends MediaHttpResponse {
 
     private List<Film> films;
 

@@ -2,14 +2,14 @@ package fr.gcrevisy.media.model.technique;
 
 import fr.gcrevisy.media.model.metier.Film;
 
-public class FilmJson extends ResultJson {
+public class FilmResponse extends MediaHttpResponse {
 
     private Film film;
 
-    public FilmJson() {
+    public FilmResponse() {
     }
 
-    public FilmJson(Film film) {
+    public FilmResponse(Film film) {
         this.film = film;
     }
 

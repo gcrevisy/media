@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import fr.gcrevisy.media.exception.TechnicalException;
 import fr.gcrevisy.media.model.metier.Film;
-import fr.gcrevisy.media.model.technique.FilmJson;
+import fr.gcrevisy.media.model.technique.FilmResponse;
 import fr.gcrevisy.media.model.technique.FilmsJson;
 import fr.gcrevisy.media.service.FilmService;
 
@@ -26,7 +26,7 @@ public class FilmControllerTest {
     @Test
     public void getByIdNull() {
         FilmController controller = new FilmController(getService());
-        FilmJson item = controller.getById(null);
+        FilmResponse item = controller.getById(null);
 
         Assert.assertTrue(item != null);
         Assert.assertTrue(StringUtils.isNotBlank(item.getMessage()));
@@ -36,7 +36,7 @@ public class FilmControllerTest {
     @Test
     public void getByIdValue() {
         FilmController controller = new FilmController(getService());
-        FilmJson item = controller.getById("id");
+        FilmResponse item = controller.getById("id");
 
         Assert.assertTrue(item != null);
         Assert.assertTrue(StringUtils.isBlank(item.getMessage()));
@@ -53,13 +53,13 @@ public class FilmControllerTest {
     @Test
     public void deleteByItemOk() {
         FilmController controller = new FilmController(getService());
-        controller.delete(new FilmJson(new Film("id", "libelle", "support", "annee")));
+        controller.delete(new FilmResponse(new Film("id", "libelle", "support", "annee")));
     }
 
     @Test
     public void saveOrUpdateOk() {
         FilmController controller = new FilmController(getService());
-        controller.saveOrUpdate(new FilmJson(new Film("id", "libelle", "support", "annee")));
+        controller.saveOrUpdate(new FilmResponse(new Film("id", "libelle", "support", "annee")));
     }
 
     @Test
@@ -71,13 +71,13 @@ public class FilmControllerTest {
     @Test
     public void deleteByItemNull() {
         FilmController controller = new FilmController(getService());
-        controller.delete(new FilmJson(new Film(null, null, "support", "annee")));
+        controller.delete(new FilmResponse(new Film(null, null, "support", "annee")));
     }
 
     @Test
     public void saveOrUpdatenNull() {
         FilmController controller = new FilmController(getService());
-        controller.saveOrUpdate(new FilmJson(new Film("id", null, "support", "annee")));
+        controller.saveOrUpdate(new FilmResponse(new Film("id", null, "support", "annee")));
     }
 
     private FilmService getService() {
