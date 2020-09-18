@@ -2,19 +2,14 @@ package fr.gcrevisy.media.dao;
 
 import java.util.List;
 
-import fr.gcrevisy.media.exception.TechnicalException;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+
 import fr.gcrevisy.media.model.metier.Film;
 
-public interface FilmDao {
+public interface FilmDao extends MongoRepository<Film, String> {
 
-    void delete(String id) throws TechnicalException;
-
-    void delete(Film item) throws TechnicalException;
-
-    Film saveOrUpdate(Film item) throws TechnicalException;
-
-    List<Film> getAll();
-
-    Film getById(String id) throws TechnicalException;
+    @Query("{'annee' : {$gte : ?0, $lte : ?1}}")
+    List<Film> findByAnneeBetween(String debut, String fin);
 
 }
