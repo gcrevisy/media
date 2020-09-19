@@ -23,20 +23,20 @@ public class Film implements Model {
     private String support;
 
     @Property("annee")
-    private String annee;
+    private int annee;
 
     public Film() {
 
     }
 
-    public Film(String id, String libelle, String support, String annee) {
+    public Film(String id, String libelle, String support, int annee) {
         this.id = id;
         this.libelle = libelle;
         this.support = support;
         this.annee = annee;
     }
 
-    public Film(String libelle, String support, String annee) {
+    public Film(String libelle, String support, int annee) {
         this.libelle = libelle;
         this.support = support;
         this.annee = annee;
@@ -66,11 +66,11 @@ public class Film implements Model {
         this.support = support;
     }
 
-    public String getAnnee() {
+    public int getAnnee() {
         return this.annee;
     }
 
-    public void setAnnee(String annee) {
+    public void setAnnee(int annee) {
         this.annee = annee;
     }
 

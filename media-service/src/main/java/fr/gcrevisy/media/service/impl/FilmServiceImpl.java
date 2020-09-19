@@ -1,6 +1,7 @@
 package fr.gcrevisy.media.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class FilmServiceImpl implements FilmService {
         if (StringUtils.isBlank(id)) {
             throw new TechnicalException("Entree null ou vide FilmServiceImpl#delete");
         }
-        filmDao.delete(id);
+        filmDao.deleteById(id);
     }
 
     @Override
@@ -54,12 +55,12 @@ public class FilmServiceImpl implements FilmService {
 
         //appel imdb
 
-        return filmDao.saveOrUpdate(item);
+        return filmDao.save(item);
     }
 
     @Override
     public List<Film> getAll() {
-        return filmDao.getAll();
+        return filmDao.findAll();
     }
 
     @Override
@@ -67,7 +68,12 @@ public class FilmServiceImpl implements FilmService {
         if (StringUtils.isBlank(id)) {
             throw new TechnicalException("Entree null ou vide FilmServiceImpl#getById");
         }
-        return filmDao.getById(id);
+        Optional<Film> optionalResult = filmDao.findById(id);
+        Film result = null;
+        if (optionalResult.isPresent())
+            result = optionalResult.get();
+
+        return result;
     }
 
 }

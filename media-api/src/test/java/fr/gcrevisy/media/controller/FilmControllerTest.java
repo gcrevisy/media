@@ -53,13 +53,13 @@ public class FilmControllerTest {
     @Test
     public void deleteByItemOk() {
         FilmController controller = new FilmController(getService());
-        controller.delete(new FilmResponse(new Film("id", "libelle", "support", "annee")));
+        controller.delete(new FilmResponse(new Film("id", "libelle", "support", 2020)));
     }
 
     @Test
     public void saveOrUpdateOk() {
         FilmController controller = new FilmController(getService());
-        controller.saveOrUpdate(new FilmResponse(new Film("id", "libelle", "support", "annee")));
+        controller.saveOrUpdate(new FilmResponse(new Film("id", "libelle", "support", 2020)));
     }
 
     @Test
@@ -71,13 +71,13 @@ public class FilmControllerTest {
     @Test
     public void deleteByItemNull() {
         FilmController controller = new FilmController(getService());
-        controller.delete(new FilmResponse(new Film(null, null, "support", "annee")));
+        controller.delete(new FilmResponse(new Film(null, null, "support", 2020)));
     }
 
     @Test
     public void saveOrUpdatenNull() {
         FilmController controller = new FilmController(getService());
-        controller.saveOrUpdate(new FilmResponse(new Film("id", null, "support", "annee")));
+        controller.saveOrUpdate(new FilmResponse(new Film("id", null, "support", 2020)));
     }
 
     private FilmService getService() {
@@ -98,7 +98,7 @@ public class FilmControllerTest {
                 if ("1234".equals(id))
                     throw new TechnicalException("Entree incorrecte FilmServiceImpl#getById");
 
-                return new Film("id", "libelle", "support", "annee");
+                return new Film("id", "libelle", "support", 2020);
             }
 
             @Override
