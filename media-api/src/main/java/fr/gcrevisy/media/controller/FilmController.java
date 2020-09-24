@@ -1,5 +1,8 @@
 package fr.gcrevisy.media.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.gcrevisy.media.exception.TechnicalException;
+import fr.gcrevisy.media.model.metier.Film;
 import fr.gcrevisy.media.model.technique.FilmResponse;
 import fr.gcrevisy.media.model.technique.FilmsJson;
 import fr.gcrevisy.media.service.FilmService;
@@ -43,6 +47,30 @@ public class FilmController {
             logger.error("erreur pendant le getById : ", e);
             result.setMessage(e.getMessage());
         }
+        return result;
+    }
+    
+    @GetMapping("/film/getByFilmDirector/{name}")
+    public FilmsJson getByFilmDirector(@PathVariable String name) {
+        FilmsJson result = new FilmsJson();
+        List<Film> tmp=filmService.getAll();
+		List<Film> resultat=new ArrayList<Film>();
+		
+		int taille=filmService.getAll().size();
+		int i=0;
+		while(i<taille) {
+			if(tmp.get(i).getRealisateur().getNom().equals(name)) {
+				resultat.add(tmp.get(i));
+			}
+			
+			i++;
+			
+			if(i==taille) {
+				break;
+			}
+		}
+		
+		result.setFilms(resultat);
         return result;
     }
 
