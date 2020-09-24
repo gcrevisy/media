@@ -24,12 +24,26 @@ public class Film implements Model {
 
     @Property("annee")
     private int annee;
+    
+    @Property("realisateur")
+    private Realisateur realisateur;
 
     public Film() {
 
     }
+    
+    public Film(String id, String libelle, String support, int annee, Realisateur realisateur) {
+		super();
+		this.id = id;
+		this.libelle = libelle;
+		this.support = support;
+		this.annee = annee;
+		this.realisateur = realisateur;
+	}
 
-    public Film(String id, String libelle, String support, int annee) {
+
+
+	public Film(String id, String libelle, String support, int annee) {
         this.id = id;
         this.libelle = libelle;
         this.support = support;
@@ -73,8 +87,16 @@ public class Film implements Model {
     public void setAnnee(int annee) {
         this.annee = annee;
     }
+    
+    public Realisateur getRealisateur() {
+		return realisateur;
+	}
 
-    @Override
+	public void setRealisateur(Realisateur realisateur) {
+		this.realisateur = realisateur;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (o == this)
             return true;
@@ -83,12 +105,13 @@ public class Film implements Model {
         }
         Film film = (Film) o;
         return Objects.equals(id, film.id) && Objects.equals(libelle, film.libelle)
-                && Objects.equals(support, film.support) && Objects.equals(annee, film.annee);
+                && Objects.equals(support, film.support) && Objects.equals(annee, film.annee)
+                && Objects.equals(realisateur, film.realisateur);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, libelle, support, annee);
+        return Objects.hash(id, libelle, support, annee, realisateur);
     }
 
 }
