@@ -8,8 +8,8 @@ pipeline {
         }
     }
     post {
-    always {
-        jacoco exclusionPattern: '**/*Test*.class, **/**fr/gcrevisy/media/model/**/*.*, **/**fr/gcrevisy/media/exception/**/*.*, **/fr/gcrevisy/media/App.class'
+        always {
+            jacoco exclusionPattern: '**/*Test*.class, **/**fr/gcrevisy/media/model/**/*.*, **/**fr/gcrevisy/media/exception/**/*.*, **/fr/gcrevisy/media/App.class'
         }
     }
 }
