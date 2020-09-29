@@ -9,6 +9,7 @@ pipeline {
     }
     post {
         always {
+            JUnitResultArchiver', testResults: '**/target/test-reports/*.xml'
             jacoco exclusionPattern: '**/*Test*.class, **/**fr/gcrevisy/media/model/**/*.*, **/**fr/gcrevisy/media/exception/**/*.*, **/fr/gcrevisy/media/App.class'
         }
     }
