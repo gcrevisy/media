@@ -9,7 +9,7 @@ pipeline {
     }
     post {
         always {
-            junit '**/target/test-reports/*.xml'
+            junit '**/target/surefire-reports/*.xml'
             jacoco exclusionPattern: '**/*Test*.class, **/**fr/gcrevisy/media/model/**/*.*, **/**fr/gcrevisy/media/exception/**/*.*, **/fr/gcrevisy/media/App.class'
         }
     }
