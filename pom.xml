@@ -18,7 +18,7 @@
     <modules>
         <module>media-api</module>
         <module>media-service</module>
-        <module>media-persistance</module>
+        <module>media-persistence</module>
         <module>media-core</module>
     </modules>
     <profiles>
@@ -65,7 +65,7 @@
             </dependency>
             <dependency>
                 <groupId>fr.gcrevisy.media</groupId>
-                <artifactId>media-persistance</artifactId>
+                <artifactId>media-persistence</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
