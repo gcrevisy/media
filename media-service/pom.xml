@@ -17,7 +17,7 @@
     </dependency>
     <dependency>
       <groupId>fr.gcrevisy.media</groupId>
-      <artifactId>media-persistance</artifactId>
+      <artifactId>media-persistence</artifactId>
     </dependency>
   </dependencies>
 
