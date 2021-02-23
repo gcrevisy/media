@@ -1,5 +1,7 @@
 package fr.gcrevisy.media.service.impl;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -131,4 +133,14 @@ public class FilmServiceImplTest {
 
         return mocked;
     }
+    
+    @Test
+    public void testBDDvide() {
+        FilmDao mocked = Mockito.mock(FilmDao.class);
+
+        Mockito.when(mocked.findAll()).thenReturn(new ArrayList<>());
+        
+        assertTrue(mocked.findAll().size()==0);
+    }
+    
 }
