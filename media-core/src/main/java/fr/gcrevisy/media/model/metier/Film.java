@@ -11,84 +11,102 @@ import fr.gcrevisy.media.model.Model;
 @Entity("films")
 public class Film implements Model {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
+private Realisateur realisateur;
+	@Id
+	private String id;
 
-    @Id
-    private String id;
+	@Property("libelle")
+	private String libelle;
 
-    @Property("libelle")
-    private String libelle;
+	@Property("support")
+	private String support;
 
-    @Property("support")
-    private String support;
+	@Property("annee")
+	private int annee;
 
-    @Property("annee")
-    private String annee;
+	public Film() {
 
-    public Film() {
+	}
 
-    }
+	
+public Film(Realisateur realisateur, String id, String libelle, String support, int annee) 
+{super();
+this.realisateur = realisateur;
+this.id = id;this.libelle=libelle;this.support=support;this.annee=annee;}
 
-    public Film(String id, String libelle, String support, String annee) {
-        this.id = id;
-        this.libelle = libelle;
-        this.support = support;
-        this.annee = annee;
-    }
 
-    public Film(String libelle, String support, String annee) {
-        this.libelle = libelle;
-        this.support = support;
-        this.annee = annee;
-    }
+public Realisateur getRealisateur() 
+{return realisateur;
+}
 
-    public String getId() {
-        return this.id;
-    }
+public void setRealisateur(Realisateur realisateur) {
+		this.realisateur = realisateur;
+}
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
-    public String getLibelle() {
-        return this.libelle;
-    }
+	@Deprecated
+	public Film(String id, String libelle, String support, int annee) {
+		this.id = id;
+		this.libelle = libelle;
+		this.support = support;
+		this.annee = annee;
+	}
 
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
-    }
+	public Film(String libelle, String support, int annee) {
+		this.libelle = libelle;
+		this.support = support;
+		this.annee = annee;
+	}
 
-    public String getSupport() {
-        return this.support;
-    }
+	public String getId() {
+		return this.id;
+	}
 
-    public void setSupport(String support) {
-        this.support = support;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getAnnee() {
-        return this.annee;
-    }
+	public String getLibelle() {
+		return this.libelle;
+	}
 
-    public void setAnnee(String annee) {
-        this.annee = annee;
-    }
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Film)) {
-            return false;
-        }
-        Film film = (Film) o;
-        return Objects.equals(id, film.id) && Objects.equals(libelle, film.libelle)
-                && Objects.equals(support, film.support) && Objects.equals(annee, film.annee);
-    }
+	public String getSupport() {
+		return this.support;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, libelle, support, annee);
-    }
+	public void setSupport(String support) {
+		this.support = support;
+	}
+
+	public int getAnnee() {
+		return this.annee;
+	}
+
+	public void setAnnee(int annee) {
+		this.annee = annee;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o == this) {
+			return true;
+		}
+		if (!(o instanceof Film)) {
+			return false;
+		}
+		Film film = (Film) o;
+		return Objects.equals(id, film.id) && Objects.equals(libelle, film.libelle)
+				&& Objects.equals(support, film.support) && Objects.equals(annee, film.annee);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, libelle, support, annee);
+	}
 
 }
