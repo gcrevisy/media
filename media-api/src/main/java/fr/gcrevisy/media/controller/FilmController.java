@@ -10,14 +10,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.gcrevisy.media.exception.TechnicalException;
 import fr.gcrevisy.media.model.technique.FilmResponse;
 import fr.gcrevisy.media.model.technique.FilmsJson;
 import fr.gcrevisy.media.service.FilmService;
+import io.swagger.annotations.Api;
 
 @RestController
+@Api(value = "/media", description = "FilmController", produces = "application/json")
+@RequestMapping("/media")
 public class FilmController {
 
     private Logger logger = LoggerFactory.getLogger(FilmController.class);
