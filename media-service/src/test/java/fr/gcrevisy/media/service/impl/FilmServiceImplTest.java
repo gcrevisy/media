@@ -2,9 +2,11 @@ package fr.gcrevisy.media.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import fr.gcrevisy.media.dao.FilmDao;
 import fr.gcrevisy.media.exception.TechnicalException;
@@ -21,7 +23,7 @@ public class FilmServiceImplTest {
 
     @Test
     public void deleteItemValue() throws TechnicalException {
-        Film item = new Film("libelle", "support", "annee");
+        Film item = new Film("libelle", "support", 2020);
         FilmService service = new FilmServiceImpl(initDao());
         service.delete(item);
     }
@@ -52,7 +54,7 @@ public class FilmServiceImplTest {
 
     @Test
     public void saveOrUpdateItemValue() throws TechnicalException {
-        Film item = new Film("libelle", "support", "annee");
+        Film item = new Film("libelle", "support", 2020);
         FilmService service = new FilmServiceImpl(initDao());
         Film result = service.saveOrUpdate(item);
 
@@ -61,7 +63,7 @@ public class FilmServiceImplTest {
 
     @Test(expected = TechnicalException.class)
     public void saveOrUpdateItemValueLibelleVide() throws TechnicalException {
-        Film item = new Film("", "support", "annee");
+        Film item = new Film("", "support", 2020);
         FilmService service = new FilmServiceImpl(initDao());
         Film result = service.saveOrUpdate(item);
 
@@ -70,7 +72,7 @@ public class FilmServiceImplTest {
 
     @Test(expected = TechnicalException.class)
     public void saveOrUpdateItemValueLibelleNull() throws TechnicalException {
-        Film item = new Film(null, "support", "annee");
+        Film item = new Film(null, "support", 2020);
         FilmService service = new FilmServiceImpl(initDao());
         Film result = service.saveOrUpdate(item);
 
@@ -79,7 +81,7 @@ public class FilmServiceImplTest {
 
     @Test(expected = TechnicalException.class)
     public void saveOrUpdateItemValueSupportVide() throws TechnicalException {
-        Film item = new Film("libelle", "", "annee");
+        Film item = new Film("libelle", "", 2020);
         FilmService service = new FilmServiceImpl(initDao());
         Film result = service.saveOrUpdate(item);
 
@@ -88,7 +90,7 @@ public class FilmServiceImplTest {
 
     @Test(expected = TechnicalException.class)
     public void saveOrUpdateItemValueSupportNull() throws TechnicalException {
-        Film item = new Film("libelle", null, "annee");
+        Film item = new Film("libelle", null, 2020);
         FilmService service = new FilmServiceImpl(initDao());
         Film result = service.saveOrUpdate(item);
 
@@ -118,32 +120,15 @@ public class FilmServiceImplTest {
     }
 
     private FilmDao initDao() {
-        return new FilmDao() {
+        FilmDao mocked = Mockito.mock(FilmDao.class);
 
-            @Override
-            public Film saveOrUpdate(Film item) throws TechnicalException {
-                return new Film("libelle", "support", "annee");
-            }
+        Mockito.when(mocked.findAll()).thenReturn(new ArrayList<>());
 
-            @Override
-            public Film getById(String id) throws TechnicalException {
-                return new Film("libelle", "support", "annee");
-            }
+        Film film = new Film("id", "libelle", "support", 2020);
+        Mockito.when(mocked.findById(Mockito.anyString())).thenReturn(Optional.of(film));
 
-            @Override
-            public List<Film> getAll() {
-                return new ArrayList<Film>();
-            }
+        Mockito.when(mocked.save(Mockito.any(Film.class))).thenReturn(film);
 
-            @Override
-            public void delete(Film item) throws TechnicalException {
-
-            }
-
-            @Override
-            public void delete(String id) throws TechnicalException {
-
-            }
-        };
+        return mocked;
     }
 }
