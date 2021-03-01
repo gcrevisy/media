@@ -9,24 +9,35 @@ import fr.gcrevisy.media.model.Model;
 public class Film implements Model {
 
     private static final long serialVersionUID = 1L;
-    private Realisateur realisateur;
+
     @Id
     private String id;
-
     private String libelle;
-
     private String support;
-
     private int annee;
+    private Realisateur realisateur;
 
     public Film() {
 
     }
 
-    public Film(Realisateur realisateur, String id, String libelle, String support, int annee) {
-        super();
-        this.realisateur = realisateur;
+    public Film(String id, String libelle, String support, int annee) {
         this.id = id;
+        this.libelle = libelle;
+        this.support = support;
+        this.annee = annee;
+    }
+
+    public Film(String id, String libelle, String support, int annee, Realisateur realisateur) {
+        super();
+        this.id = id;
+        this.libelle = libelle;
+        this.support = support;
+        this.annee = annee;
+        this.realisateur = realisateur;
+    }
+
+    public Film(String libelle, String support, int annee) {
         this.libelle = libelle;
         this.support = support;
         this.annee = annee;
@@ -38,20 +49,6 @@ public class Film implements Model {
 
     public void setRealisateur(Realisateur realisateur) {
         this.realisateur = realisateur;
-    }
-
-    @Deprecated
-    public Film(String id, String libelle, String support, int annee) {
-        this.id = id;
-        this.libelle = libelle;
-        this.support = support;
-        this.annee = annee;
-    }
-
-    public Film(String libelle, String support, int annee) {
-        this.libelle = libelle;
-        this.support = support;
-        this.annee = annee;
     }
 
     public String getId() {
@@ -97,11 +94,6 @@ public class Film implements Model {
         Film film = (Film) o;
         return Objects.equals(id, film.id) && Objects.equals(libelle, film.libelle)
                 && Objects.equals(support, film.support) && Objects.equals(annee, film.annee);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, libelle, support, annee);
     }
 
 }
