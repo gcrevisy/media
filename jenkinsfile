@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     parameters{
-        booleanParam(name: 'RELEASE', defaultValue: false, description: ''),
-        string(name: 'RELEASE_VERSION', defaultValue: '', description: 'ex : 1.7'),
+        booleanParam(name: 'RELEASE', defaultValue: false, description: '')
+        string(name: 'RELEASE_VERSION', defaultValue: '', description: 'ex : 1.7')
         string(name: 'DEV_NEXT_VERSION', defaultValue: '', description: 'ex : 2.3-SNAPSHOT')
     }
 
