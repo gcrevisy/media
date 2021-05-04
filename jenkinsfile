@@ -8,13 +8,13 @@ pipeline {
     }
 
     stages { 
-        stage('Build') { 
+        stage('build') { 
             steps { 
                bat 'mvn clean install' 
             }
         }
 
-        stage('Build') { 
+        stage('release') { 
             steps {
                 if (RELEASE == true) {
                     echo "[INFO] ---> release"
