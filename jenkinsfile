@@ -15,8 +15,8 @@ pipeline {
         }
 
         stage('release') { 
-            steps {
-                if (RELEASE == true) {
+            if (RELEASE == true) {
+                steps {
                     echo "[INFO] ---> release"
                     bat 'mvn clean install' 
                 }
