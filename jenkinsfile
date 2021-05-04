@@ -1,9 +1,25 @@
 pipeline { 
-    agent any  
+    agent any
+
+    parameters{
+        booleanParam(name: 'RELEASE', defaultValue: false, description: ''),
+        string(name: 'RELEASE_VERSION', defaultValue: '', description: 'ex : 1.7'),
+        string(name: 'DEV_NEXT_VERSION', defaultValue: '', description: 'ex : 2.3-SNAPSHOT')
+    }
+
     stages { 
         stage('Build') { 
             steps { 
                bat 'mvn clean install' 
+            }
+        }
+
+        stage('Build') { 
+            steps {
+                if (RELEASE == true) {
+                    echo "[INFO] ---> release"
+                    bat 'mvn clean install' 
+                }
             }
         }
     }
