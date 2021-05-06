@@ -13,15 +13,6 @@ pipeline {
                bat 'mvn clean install' 
             }
         }
-
-        stage('release') { 
-            if (RELEASE == true) {
-                steps {
-                    bat 'echo [INFO] ---> release'
-                    bat 'mvn clean install' 
-                }
-            }
-        }
     }
     post {
         always {
